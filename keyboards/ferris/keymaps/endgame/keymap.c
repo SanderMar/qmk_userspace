@@ -43,7 +43,37 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define OSL_NAV OSL(_NAV)
 
+const uint16_t PROGMEM cb_lprn[] = {KC_LSFT, KC_D, COMBO_END};
+const uint16_t PROGMEM cb_rprn[] = {KC_RSFN, KC_H, COMBO_END};
+const uint16_t PROGMEM cb_lbrc[] = {KC_LCTS, KC_C, COMBO_END};
+const uint16_t PROGMEM cb_rbrc[] = {KC_RCTE, KC_COMM, COMBO_END};
+const uint16_t PROGMEM cb_lcbr[] = {KC_LGUR, KC_X, COMBO_END};
+const uint16_t PROGMEM cb_rcbr[] = {KC_RGUI, KC_DOT, COMBO_END};
+const uint16_t PROGMEM cb_quot[] = {KC_LSFT, KC_P, COMBO_END};
+const uint16_t PROGMEM cb_dqt[]  = {KC_RSFN, KC_L, COMBO_END};
+const uint16_t PROGMEM cb_eql[]  = {KC_RSFN, KC_M, COMBO_END};
+const uint16_t PROGMEM cb_copy[] = {KC_D, KC_C, COMBO_END};
+const uint16_t PROGMEM cb_past[] = {KC_D, KC_V, COMBO_END};
+const uint16_t PROGMEM cb_esc[]  = {KC_LSFT, KC_RSFN, COMBO_END};
+const uint16_t PROGMEM cb_ent[]  = {KC_TBLN, KC_BSPC, COMBO_END};
+
 // clang-format off
+combo_t key_combos[] = {
+    COMBO(cb_lprn, KC_LPRN),
+    COMBO(cb_rprn, KC_RPRN),
+    COMBO(cb_lbrc, KC_LBRC),
+    COMBO(cb_rbrc, KC_RBRC),
+    COMBO(cb_lcbr, KC_LCBR),
+    COMBO(cb_rcbr, KC_RCBR),
+    COMBO(cb_quot, KC_QUOT),
+    COMBO(cb_dqt,  KC_DQT),
+    COMBO(cb_eql,  KC_EQL),
+    COMBO(cb_copy, C(KC_C)),
+    COMBO(cb_past, C(KC_V)),
+    COMBO(cb_esc,  KC_ESC),
+    COMBO(cb_ent,  KC_ENT),
+};
+
 enum layers {
     _HOME,
     _NUMS,
@@ -67,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_SYMS] = LAYOUT(
-    _______, _______, KC_COLN, KC_LT,   KC_GT,         KC_PLUS, KC_DQT,  KC_QUOT, KC_BSLS, _______,
+    _______, _______, KC_COLN, KC_LT,   KC_GT,           KC_PLUS, KC_DQT,  KC_QUOT, KC_BSLS, _______,
     KC_CIRC, KC_LCBR, KC_LBRC, KC_LPRN, KC_AMPR,         KC_HASH, KC_MINS, KC_UNDS, KC_SLSH, KC_DLR,
     KC_EXLM, KC_RCBR, KC_RBRC, KC_RPRN, KC_AT,           KC_PERC, KC_TILD, KC_GRV,  KC_PIPE, KC_ASTR,
                                     OSL_NAV, _______, _______, _______
@@ -77,6 +107,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX,  XXXXXXX, XXXXXXX, KC_VOLU, XXXXXXX,         KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX, KC_PSCR,
     KC_LALT,  KC_GUPL, KC_CTPR, KC_SFNX, KC_MUTE,         KC_HOME, KC_PGUP, KC_PGDN, KC_END,  KC_DEL,
     XXXXXXX,  XXXXXXX, KC_CAPS, KC_VOLD, XXXXXXX,         KC_UP,   KC_LEFT, XXXXXXX, XXXXXXX, XXXXXXX,
-                                    XXXXXXX, KC_BACK, KC_FWD,  XXXXXXX
+                                    _______, KC_BACK, KC_FWD,  _______
   ),
 };
