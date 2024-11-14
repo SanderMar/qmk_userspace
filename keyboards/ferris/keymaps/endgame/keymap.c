@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define KC_LALA LALT_T(KC_A)
 #define KC_LGUR LGUI_T(KC_R)
 #define KC_LCTS LCTL_T(KC_S)
-#define KC_LSFT LSFT_T(KC_T)
+#define KC_SFLT LSFT_T(KC_T)
 #define KC_RSFN RSFT_T(KC_N)
 #define KC_RCTE RCTL_T(KC_E)
 #define KC_RGUI RGUI_T(KC_I)
@@ -43,18 +43,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define OSL_NAV OSL(_NAV)
 
-const uint16_t PROGMEM cb_lprn[] = {KC_LSFT, KC_D, COMBO_END};
+const uint16_t PROGMEM cb_lprn[] = {KC_SFLT, KC_D, COMBO_END};
 const uint16_t PROGMEM cb_rprn[] = {KC_RSFN, KC_H, COMBO_END};
 const uint16_t PROGMEM cb_lbrc[] = {KC_LCTS, KC_C, COMBO_END};
 const uint16_t PROGMEM cb_rbrc[] = {KC_RCTE, KC_COMM, COMBO_END};
 const uint16_t PROGMEM cb_lcbr[] = {KC_LGUR, KC_X, COMBO_END};
 const uint16_t PROGMEM cb_rcbr[] = {KC_RGUI, KC_DOT, COMBO_END};
-const uint16_t PROGMEM cb_quot[] = {KC_LSFT, KC_P, COMBO_END};
+const uint16_t PROGMEM cb_quot[] = {KC_SFLT, KC_P, COMBO_END};
 const uint16_t PROGMEM cb_dqt[]  = {KC_RSFN, KC_L, COMBO_END};
 const uint16_t PROGMEM cb_eql[]  = {KC_RSFN, KC_M, COMBO_END};
 const uint16_t PROGMEM cb_copy[] = {KC_D, KC_C, COMBO_END};
 const uint16_t PROGMEM cb_past[] = {KC_D, KC_V, COMBO_END};
-const uint16_t PROGMEM cb_esc[]  = {KC_LSFT, KC_RSFN, COMBO_END};
+const uint16_t PROGMEM cb_esc[]  = {KC_SFLT, KC_RSFN, COMBO_END};
 const uint16_t PROGMEM cb_ent[]  = {KC_TBLN, KC_BSPC, COMBO_END};
 
 // clang-format off
@@ -84,7 +84,7 @@ enum layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_HOME] = LAYOUT(
     KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,            KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
-    KC_LALA, KC_LGUR, KC_LCTS, KC_LSFT, KC_G,            KC_M,    KC_RSFN, KC_RCTE, KC_RGUI, KC_RALO,
+    KC_LALA, KC_LGUR, KC_LCTS, KC_SFLT, KC_G,            KC_M,    KC_RSFN, KC_RCTE, KC_RGUI, KC_RALO,
     KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,            KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_RLSH,
                                   KC_TBLN, KC_BSPC, KC_SPC, KC_ESLS
   ),
