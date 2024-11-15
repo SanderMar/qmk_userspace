@@ -78,7 +78,9 @@ enum layers {
     _HOME,
     _NUMS,
     _SYMS,
-    _NAV
+    _NAV,
+    _G0,
+    _G1
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -104,9 +106,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_NAV] = LAYOUT(
-    XXXXXXX,  XXXXXXX, XXXXXXX, KC_VOLU, XXXXXXX,         KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX, KC_PSCR,
-    KC_LALT,  KC_GUPL, KC_CTPR, KC_SFNX, KC_MUTE,         KC_HOME, KC_PGUP, KC_PGDN, KC_END,  KC_DEL,
-    XXXXXXX,  XXXXXXX, KC_CAPS, KC_VOLD, XXXXXXX,         KC_UP,   KC_LEFT, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLU, XXXXXXX,         KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX, KC_PSCR,
+    KC_LALT, KC_GUPL, KC_CTPR, KC_SFNX, KC_MUTE,         KC_HOME, KC_PGUP, KC_PGDN, KC_END,  KC_DEL,
+    XXXXXXX, XXXXXXX, KC_CAPS, KC_VOLD, XXXXXXX,         KC_UP,   KC_LEFT, XXXXXXX, XXXXXXX, TO(_G0),
                                     _______, KC_BACK, KC_FWD,  _______
+  ),
+
+  [_G0] = LAYOUT(
+    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,            KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,
+    KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,            KC_G,    KC_H,    KC_J,    KC_K,    KC_L,
+    KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,            KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,
+                                    OSL(_G1), KC_SPC, KC_ESC, KC_LGUI
+  ),
+  [_G1] = LAYOUT(
+    _______, _______, _______, _______, KC_9,            _______, _______, _______, _______, _______,
+    _______, KC_1,    KC_2,    KC_3,    KC_4,            _______, _______, _______, _______  _______
+    _______, KC_5,    KC_6,    KC_7,    KC_8,            _______  _______, _______, _______, TO(_HOME),
+                                    _______, _______, _______,  _______
   ),
 };
