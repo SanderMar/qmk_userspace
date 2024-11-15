@@ -16,6 +16,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include QMK_KEYBOARD_H
 
+enum layers { _HOME, _NUMS, _SYMS, _NAV, _G0, _G1 };
+
 #define KC_LALA LALT_T(KC_A)
 #define KC_LGUR LGUI_T(KC_R)
 #define KC_LCTS LCTL_T(KC_S)
@@ -28,7 +30,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define KC_SFEQ LSFT_T(KC_EQL)
 
 #define KC_TBLN LT(_NUMS, KC_TAB)
-#define KC_ESLS NT(_SYMS, KC_ESC)
+#define KC_ESLS LT(_SYMS, KC_ESC)
 
 #define KC_GUPL LGUI_T(KC_MPLY)
 #define KC_CTPR LCTL_T(KC_MPRV)
@@ -74,21 +76,12 @@ combo_t key_combos[] = {
     COMBO(cb_ent,  KC_ENT),
 };
 
-enum layers {
-    _HOME,
-    _NUMS,
-    _SYMS,
-    _NAV,
-    _G0,
-    _G1
-};
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_HOME] = LAYOUT(
     KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,            KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
     KC_LALA, KC_LGUR, KC_LCTS, KC_SFLT, KC_G,            KC_M,    KC_RSFN, KC_RCTE, KC_RGUI, KC_RALO,
-    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,            KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_RLSH,
-                                  KC_TBLN, KC_BSPC, KC_SPC, KC_ESLS
+    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,            KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
+                                    KC_TBLN, KC_BSPC, KC_SPC, KC_ESLS
   ),
 
   [_NUMS] = LAYOUT(
@@ -120,8 +113,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_G1] = LAYOUT(
     _______, _______, _______, _______, KC_9,            _______, _______, _______, _______, _______,
-    _______, KC_1,    KC_2,    KC_3,    KC_4,            _______, _______, _______, _______  _______
-    _______, KC_5,    KC_6,    KC_7,    KC_8,            _______  _______, _______, _______, TO(_HOME),
+    _______, KC_1,    KC_2,    KC_3,    KC_4,            _______, _______, _______, _______, _______,
+    _______, KC_5,    KC_6,    KC_7,    KC_8,            _______, _______, _______, _______, TO(_HOME),
                                     _______, _______, _______,  _______
-  ),
+  )
 };
