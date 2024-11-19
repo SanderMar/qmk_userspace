@@ -25,3 +25,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ONESHOT_TAP_TOGGLE 3
 
 #define COMBO_TERM 40
+
+#define EE_HANDS
