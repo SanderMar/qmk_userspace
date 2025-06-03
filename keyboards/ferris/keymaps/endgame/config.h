@@ -28,3 +28,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define COMBO_TERM 40
 
 #define EE_HANDS
+
+#define MK_COMBINED
+#define MK_MOMENTARY_ACCEL

@@ -16,7 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include QMK_KEYBOARD_H
 
-enum layers { _HOME, _NUMS, _SYMS, _NAV, _G0, _G1 };
+enum layers { _HOME, _NUMS, _SYMS, _NAV, _M, _G0, _G1 };
 
 #define KC_LALA LALT_T(KC_A)
 #define KC_LGUR LGUI_T(KC_R)
@@ -59,6 +59,8 @@ const uint16_t PROGMEM cb_past[] = {KC_D, KC_V, COMBO_END};
 const uint16_t PROGMEM cb_esc[]  = {KC_SFLT, KC_RSFN, COMBO_END};
 const uint16_t PROGMEM cb_ent[]  = {KC_TBLN, KC_BSPC, COMBO_END};
 
+const uint16_t PROGMEM cb_mid[] = {MS_BTN1, MS_BTN2, COMBO_END};
+
 // clang-format off
 combo_t key_combos[] = {
     COMBO(cb_lprn, KC_LPRN),
@@ -74,6 +76,8 @@ combo_t key_combos[] = {
     COMBO(cb_past, C(KC_V)),
     COMBO(cb_esc,  KC_ESC),
     COMBO(cb_ent,  KC_ENT),
+
+    COMBO(cb_mid,  MS_BTN3),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -101,8 +105,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_NAV] = LAYOUT(
     XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLU, XXXXXXX,         KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX, KC_PSCR,
     KC_LALT, KC_GUPL, KC_CTPR, KC_SFNX, KC_MUTE,         KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_DEL,
-    TO(_G0), KC_CAPS, CW_TOGG, KC_VOLD, XXXXXXX,         KC_UP,   KC_LEFT, KC_APP,  XXXXXXX,  TO(_HOME),
+    TO(_G0), KC_CAPS, CW_TOGG, KC_VOLD, XXXXXXX,         KC_UP,   KC_LEFT, KC_APP,  TO(_M),  TO(_HOME),
                                     _______, KC_BACK, KC_FWD,  _______
+  ),
+
+  [_M] = LAYOUT(
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,         XXXXXXX, MS_WHLU, MS_WHLR, XXXXXXX, XXXXXXX,
+    KC_LALT, KC_LGUI, KC_LCTL, KC_LSFT, XXXXXXX,         XXXXXXX, MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,         XXXXXXX, MS_WHLD, MS_WHLL, XXXXXXX, TO(_HOME),
+                                    MS_ACL1, MS_ACL0, MS_BTN1,  MS_BTN2
   ),
 
   [_G0] = LAYOUT(
