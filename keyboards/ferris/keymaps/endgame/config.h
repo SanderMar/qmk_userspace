@@ -18,8 +18,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 #define TAPPING_TERM 200
-#define TAPPING_TERM_PER_KEY
 #define PERMISSIVE_HOLD
+// Disable PERMISSIVE_HOLD when keys on same keyboard half
+#define CHORDAL_HOLD
 
 #define ONESHOT_TIMEOUT 2000
 #define ONESHOT_TAP_TOGGLE 3
