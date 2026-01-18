@@ -14,9 +14,14 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include <stdint.h>
 #include QMK_KEYBOARD_H
 
 enum layers { _HOME, _NUMS, _SYMS, _NAV, _M, _G0, _G1 };
+
+/******
+ * Define macros fox key combinations
+ ******/
 
 #define KC_LALA LALT_T(KC_A)
 #define KC_LGUR LGUI_T(KC_R)
@@ -45,6 +50,10 @@ enum layers { _HOME, _NUMS, _SYMS, _NAV, _M, _G0, _G1 };
 
 #define OSL_NAV OSL(_NAV)
 
+/******
+ * Define combo key combinations
+ ******/
+
 const uint16_t PROGMEM cb_lprn[] = {KC_SFLT, KC_D, COMBO_END};
 const uint16_t PROGMEM cb_rprn[] = {KC_RSFN, KC_H, COMBO_END};
 const uint16_t PROGMEM cb_lbrc[] = {KC_LCTS, KC_C, COMBO_END};
@@ -56,10 +65,15 @@ const uint16_t PROGMEM cb_dqt[]  = {KC_RSFN, KC_L, COMBO_END};
 const uint16_t PROGMEM cb_eql[]  = {KC_RSFN, KC_M, COMBO_END};
 const uint16_t PROGMEM cb_copy[] = {KC_D, KC_C, COMBO_END};
 const uint16_t PROGMEM cb_past[] = {KC_D, KC_V, COMBO_END};
-const uint16_t PROGMEM cb_esc[]  = {KC_SFLT, KC_RSFN, COMBO_END};
+const uint16_t PROGMEM cb_esc[]  = {KC_RSFN, KC_RCTE, KC_RGUI, COMBO_END};
 const uint16_t PROGMEM cb_ent[]  = {KC_TBLN, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM cb_capw[] = {KC_COMM, KC_DOT, COMBO_END};
 
 const uint16_t PROGMEM cb_mid[] = {MS_BTN1, MS_BTN2, COMBO_END};
+
+/******
+ * Define combo behaviors
+ ******/
 
 // clang-format off
 combo_t key_combos[] = {
@@ -76,9 +90,14 @@ combo_t key_combos[] = {
     COMBO(cb_past, C(KC_V)),
     COMBO(cb_esc,  KC_ESC),
     COMBO(cb_ent,  KC_ENT),
+    COMBO(cb_capw, CW_TOGG),
 
     COMBO(cb_mid,  MS_BTN3),
 };
+
+/******
+ * Define keymap
+ ******/
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_HOME] = LAYOUT(
