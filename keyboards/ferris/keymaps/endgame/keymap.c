@@ -89,7 +89,7 @@ combo_t key_combos[] = {
     COMBO(cb_copy, C(KC_C)),
     COMBO(cb_past, C(KC_V)),
     COMBO(cb_esc,  KC_ESC),
-    COMBO(cb_ent,  KC_ENT),
+    COMBO(cb_ent,  LT(_NAV, KC_ENT)), // Hold-tap behavior for nav layer and enter
     COMBO(cb_capw, CW_TOGG),
 
     COMBO(cb_mid,  MS_BTN3),
@@ -125,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLU, XXXXXXX,         KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX, KC_PSCR,
     KC_LALT, KC_GUPL, KC_CTPR, KC_SFNX, KC_MUTE,         KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_DEL,
     TO(_G0), KC_CAPS, CW_TOGG, KC_VOLD, XXXXXXX,         KC_UP,   KC_LEFT, KC_APP,  TO(_M),  TO(_HOME),
-                                    _______, KC_BACK, KC_FWD,  _______
+                                    _______, _______, KC_BACK, KC_FWD
   ),
 
   [_M] = LAYOUT(
